@@ -1,5 +1,5 @@
 /* eslint-disable */
-import React from "react";
+import React, {Component} from "react";
 import PropTypes from "prop-types";
 import { Switch, Route, Redirect } from "react-router-dom";
 // creates a beautiful scrollbar
@@ -29,7 +29,7 @@ const switchRoutes = (
   </Switch>
 );
 
-class App extends React.Component {
+class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -71,7 +71,7 @@ class App extends React.Component {
       <div className={classes.wrapper}>
         <Sidebar
           routes={dashboardRoutes}
-          logoText={"Creative Tim"}
+          logoText={"Home EXPENSES"}
           logo={logo}
           image={image}
           handleDrawerToggle={this.handleDrawerToggle}
