@@ -41,11 +41,15 @@ const validate = values => {
   } else if (values.password.length < 4) {
     errors.password = 'Sorry, your password to short'
   }
+  if (values.password !== values.confirm_password) {
+    errors.confirm_password = 'Your password dies not match'
+  }
   return errors
 }
 
 let SignUpForm = props => {
-  const { handleSubmit, submitting } = props;
+  console.log('SIGNFORM', props);
+  const { handleSubmit, submitting, valid } = props;
   return (
     <form onSubmit={ handleSubmit }>
       <div>
@@ -84,7 +88,7 @@ let SignUpForm = props => {
         variant="contained"
         color="secondary"
         className="secondary"
-        disabled={submitting}>
+        disabled={!valid}>
         Sign in
       </Button>
     </form>
