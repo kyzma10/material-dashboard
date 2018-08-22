@@ -30,6 +30,25 @@ const appStyle = theme => ({
   container,
   map: {
     marginTop: "70px"
+  },
+  root: {
+    display: 'flex',
+    flexWrap: 'wrap',
+  },
+  formControl: {
+    margin: theme.spacing.unit,
+    minWidth: 120,
+  },
+  selectEmpty: {
+    marginTop: theme.spacing.unit,
+  },
+  textField: {
+    marginLeft: theme.spacing.unit,
+    marginRight: theme.spacing.unit,
+    width: 200,
+  },
+  input: {
+    margin: theme.spacing.unit * 5,
   }
 });
 

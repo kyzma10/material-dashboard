@@ -10,24 +10,15 @@ import LoginContainers from "../../containers/LoginForm/LoginContainers";
 
 const CustomLogined = () => {
   return (
-    <div>
-      <Card plain={"false"} >
-        <CardHeader color="primary" plain={true} >
-          <h2>Sign into Home Expense App</h2>
-          <h5>Please enter your email and password</h5>
+      <Card>
+        <CardHeader color="primary" >
+          <h4>Sign into Home Expense App</h4>
+          <p>Please enter your email and password</p>
         </CardHeader>
         <CardBody>
-          <LoginContainers />
-          {/*<form>
-            <input type="email" placeholder="Email address"/>
-            <input type="password" placeholder="Password"/>
-            <Button variant="contained" color="secondary" className={"secondary"}>
-              Secondary
-            </Button>
-          </form>*/}
+            <LoginContainers />
         </CardBody>
       </Card>
-    </div>
   );
 };
 

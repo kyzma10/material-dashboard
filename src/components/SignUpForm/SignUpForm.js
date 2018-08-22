@@ -48,8 +48,7 @@ const validate = values => {
 }
 
 let SignUpForm = props => {
-  console.log('SIGNFORM', props);
-  const { handleSubmit, submitting, valid } = props;
+  const { handleSubmit, valid } = props;
   return (
     <form onSubmit={ handleSubmit }>
       <div>
