@@ -17,13 +17,26 @@ import MenuItem from "@material-ui/core/MenuItem";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";*/
 
+import {connect} from "react-redux";
+import {Redirect} from "react-router-dom";
+import { register } from "../../actions/authActions";
+import routes from "../../utils/routes";
+
 class SignUp extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {isReg: false}
+  }
+
   submit = (values) => {
     // print the form values to the console
-    console.log(values);
+    // console.log(values);
+    this.props.register(values);
   };
 
   render() {
+    const {isRegister, error} = this.props;
+    console.log(error);
     return (
       <div>
         <GridContainer>
@@ -35,6 +48,8 @@ class SignUp extends Component {
               </CardHeader>
               <CardBody>
                 <SignUpForm onSubmit={this.submit} />
+                {error ? <div>{error.message}</div> : null}
+                {isRegister ? <Redirect from={routes.register} to={routes.verify}/> : null}
               </CardBody>
             </Card>
           </GridItem>
@@ -44,4 +59,13 @@ class SignUp extends Component {
   }
 }
 
-export default SignUp;
+const mapStaateToProps = state => ({
+  isRegister: state.auth.isRegister,
+  error: state.auth.error
+});
+
+const mapDispatchToProps = dispatch => ({
+  register: value => dispatch(register(value))
+});
+
+export default connect(mapStaateToProps, mapDispatchToProps)(SignUp);

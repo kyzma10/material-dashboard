@@ -1,51 +1,8 @@
 import React from "react";
 import Button from "@material-ui/core/Button";
 import { Field, reduxForm, reset } from "redux-form";
-
-const renderField = ({
-                       input,
-                       label,
-                       type,
-                       meta: { touched, error, warning }
-                     }) => (
-  <div>
-    <label>{label}</label>
-    <div>
-      <input {...input} placeholder={label} type={type} />
-      {touched &&
-      ((error && <span>{error}</span>) ||
-        (warning && <span>{warning}</span>))}
-    </div>
-  </div>
-);
-
-const validate = values => {
-  const errors = {}
-
-  if (!values.email) {
-    errors.email = 'Required'
-  } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
-    errors.email = 'Invalid email address'
-  }
-  if (!values.password) {
-    errors.password = 'Required'
-  } else if (values.password.length > 12) {
-    errors.password = 'Sorry, your password to long'
-  } else if (values.password.length < 4) {
-    errors.password = 'Sorry, your password to short'
-  }
-  if (!values.confirm_password) {
-    errors.confirm_password = 'Required'
-  } else if (values.confirm_password.length > 12) {
-    errors.confirm_password = 'Sorry, your password to long'
-  } else if (values.password.length < 4) {
-    errors.password = 'Sorry, your password to short'
-  }
-  if (values.password !== values.confirm_password) {
-    errors.confirm_password = 'Your password dies not match'
-  }
-  return errors
-}
+import {signValidate} from "../../utils/helpers";
+import RenderField from "../../components/RenderField/RenderField";
 
 let SignUpForm = props => {
   const { handleSubmit, valid } = props;
@@ -55,7 +12,7 @@ let SignUpForm = props => {
         <label htmlFor="email"></label>
         <Field
           name="email"
-          component={renderField}
+          component={RenderField}
           type="email"
           placeholder="Email"
           label="Email"
@@ -66,7 +23,7 @@ let SignUpForm = props => {
         <label htmlFor="password"></label>
         <Field
           name="password"
-          component={renderField}
+          component={RenderField}
           type="password"
           placeholder="Password"
           label="Password"/>
@@ -76,7 +33,7 @@ let SignUpForm = props => {
         <label htmlFor="confirm_password"></label>
         <Field
           name="confirm_password"
-          component={renderField}
+          component={RenderField}
           type="password"
           placeholder="Confirm Password"
           label="Confirm Password"/>
@@ -92,14 +49,14 @@ let SignUpForm = props => {
       </Button>
     </form>
   )
-}
+};
 
 const afterSubmit = (result, dispatch) => dispatch(reset("signUp"));
 
 SignUpForm = reduxForm({
   form: "signUp",
   onSubmitSuccess: afterSubmit,
-  validate
+  validate: signValidate
 })(SignUpForm);
 
 export default SignUpForm

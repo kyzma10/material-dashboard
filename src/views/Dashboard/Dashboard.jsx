@@ -30,14 +30,15 @@ import CardHeader from "components/Card/CardHeader.jsx";
 import CardBody from "components/Card/CardBody.jsx";
 // import CardFooter from "components/Card/CardFooter.jsx";
 
-import Input from '@material-ui/core/Input';
+/*import Input from '@material-ui/core/Input';
 import InputLabel from '@material-ui/core/InputLabel';
-import MenuItem from '@material-ui/core/MenuItem';
+import MenuItem from '@material-ui/core/MenuItem';*/
 // import FormHelperText from '@material-ui/core/FormHelperText';
-import FormControl from '@material-ui/core/FormControl';
+/*import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import TextField from '@material-ui/core/TextField';
-import Button from '@material-ui/core/Button';
+import Button from '@material-ui/core/Button';*/
+import OrderFormContainer from "../../containers/OrderFormContainer/OrderFormContainer";
 
 // import { bugs, website, server } from "variables/general";
 
@@ -84,7 +85,7 @@ class Dashboard extends React.Component {
                 </p>
               </CardHeader>
               <CardBody>
-                <form className={classes.root} autoComplete="off">
+               {/* <form className={classes.root} autoComplete="off">
                   <FormControl className={classes.formControl}>
                     <InputLabel htmlFor="age-helper">Category</InputLabel>
                     <Select
@@ -122,7 +123,8 @@ class Dashboard extends React.Component {
                     >
                     ADD EXPENSES
                   </Button>
-                </form>
+                </form>*/}
+                <OrderFormContainer />
               </CardBody>
             </Card>
           </GridItem>

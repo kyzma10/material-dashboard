@@ -18,6 +18,7 @@ import Reports from "views/Reports/Reports.jsx";
 import Settings from "views/Settings/Settings.jsx";
 import SignIn from "views/SignIn/SignIn.jsx";
 import SignUp from "views/SignUp/SignUp.jsx";
+import EmailVerify from "../views/EmailVerify/EmailVerify";
 
 const dashboardRoutes = [
   {
@@ -42,18 +43,25 @@ const dashboardRoutes = [
     component: Settings
   },
   {
-    path: "/sign-in",
+    path: "/login",
     sidebarName: "SignIn",
     navbarName: "SignIn",
     icon: Person,
     component: SignIn
   },
   {
-    path: "/sign-up",
+    path: "/register",
     sidebarName: "SignUp",
     navbarName: "SignUp",
     icon: Person,
     component: SignUp
+  },
+  {
+    path: "/verify",
+    sidebarName: "",
+    navbarName: "",
+    icon: "",
+    component: EmailVerify
   },
   /*{
     path: "/user",
@@ -104,7 +112,7 @@ const dashboardRoutes = [
     icon: Unarchive,
     component: UpgradeToPro
   },*/
-  { redirect: true, path: "/", to: "/dashboard", navbarName: "Redirect" }
+  // { redirect: true, path: "/", to: "/dashboard", navbarName: "Redirect" }
 ];
 
 export default dashboardRoutes;
