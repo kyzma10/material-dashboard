@@ -19,7 +19,7 @@ export const auth = value => dispatch => {
     .catch(error => dispatch({
       type: LOGIN_FAILURE,
       payload: error
-    }))
+    }));
 };
 
 export const register = value => dispatch => {

@@ -6,19 +6,19 @@ import CardHeader from "../Card/CardHeader.jsx";
 import CardBody from "../Card/CardBody";
 /*import Button from "@material-ui/core/Button";
 import CustomInput from "../CustomInput/CustomInput.jsx";*/
-import LoginContainers from "../../containers/LoginForm/LoginContainers";
+import LoginContainers from "../../containers/LoginContainer/LoginContainers";
 
 const CustomLogined = () => {
   return (
-      <Card>
-        <CardHeader color="primary" >
-          <h4>Sign into Home Expense App</h4>
-          <p>Please enter your email and password</p>
-        </CardHeader>
-        <CardBody>
-            <LoginContainers />
-        </CardBody>
-      </Card>
+    <Card>
+      <CardHeader color="primary">
+        <h4>Sign into Home Expense App</h4>
+        <p>Please enter your email and password</p>
+      </CardHeader>
+      <CardBody>
+        <LoginContainers />
+      </CardBody>
+    </Card>
   );
 };
 

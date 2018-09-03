@@ -1,11 +1,11 @@
 import React from "react";
 import Button from "@material-ui/core/Button";
 import { Field, reduxForm, reset } from "redux-form";
-import {signValidate} from "../../utils/helpers";
+import { signValidate } from "../../utils/helpers";
 import RenderField from "../../components/RenderField/RenderField";
 
 let SignUpForm = props => {
-  const { handleSubmit, valid } = props;
+  const { handleSubmit, valid, error } = props;
   return (
     <form onSubmit={ handleSubmit }>
       <div>
@@ -47,6 +47,7 @@ let SignUpForm = props => {
         disabled={!valid}>
         Sign in
       </Button>
+      {error ? <div>{error}</div> : null }
     </form>
   )
 };

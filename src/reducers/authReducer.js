@@ -2,9 +2,13 @@ import {
   LOGIN_FAILURE,
   LOGIN_SUCCESS,
   REGISTER_FAILURE,
-  REGISTER_SUCCESS, VERIFY_EMAIL_FAILURE,
+  REGISTER_SUCCESS,
+  VERIFY_EMAIL_FAILURE,
   VERIFY_EMAIL_SUCCESS
 } from "../types/authTypes";
+
+import SessionService from "../utils/sessionService";
+const sessionService = new SessionService();
 
 const initialState = {
   isRegister: false,
@@ -15,7 +19,7 @@ const initialState = {
   error: null
 };
 
-export default function (state = initialState, action) {
+export default function(state = initialState, action) {
   switch (action.type) {
     case REGISTER_SUCCESS:
       console.log("REGISTER", action.payload);
@@ -27,9 +31,10 @@ export default function (state = initialState, action) {
       };
 
     case REGISTER_FAILURE:
+      console.log(action.payload);
       return {
         ...state,
-        error: action.payload.response.data
+        error: action.payload
       };
 
     case VERIFY_EMAIL_SUCCESS:
@@ -46,10 +51,15 @@ export default function (state = initialState, action) {
       };
 
     case LOGIN_SUCCESS:
-      console.log("LOGIN", action.payload);
+      console.log("LOGIN", action.payload.data);
+      const { email, id, token } = action.payload.data;
+      // localStorage.setItem("token", token);
+      sessionService.token(token);
       return {
         ...state,
-        isLoged: true
+        isLoged: true,
+        userEmail: email,
+        id: id
       };
 
     case LOGIN_FAILURE:

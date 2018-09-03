@@ -21,7 +21,7 @@ let VerifyForm = props => {
       <div>
         <label htmlFor="verify_code"></label>
         <Field
-          name="verify_code"
+          name="confirm_code"
           component={RenderField}
           type="text"
           placeholder="enter verify code"/>

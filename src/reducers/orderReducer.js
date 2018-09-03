@@ -1,4 +1,9 @@
-import { GET_ORDER_LIST_FAILURE, GET_ORDER_LIST_SUCCESS } from "../types/orderTypes";
+import {
+  ADD_PURCHASE_FAILURE,
+  ADD_PURCHASE_SUCCESS,
+  GET_ORDER_LIST_FAILURE,
+  GET_ORDER_LIST_SUCCESS
+} from "../types/orderTypes";
 
 const initialState = {
   loading: false,
@@ -19,6 +24,15 @@ export default function(state = initialState, action){
       return {
         ...state,
         error: action.payload.data
+      };
+
+    case ADD_PURCHASE_SUCCESS:
+      return state;
+
+    case ADD_PURCHASE_FAILURE:
+      return {
+        ...state,
+        error: action.paiload
       };
 
     default: return state;

@@ -2,7 +2,7 @@ import React, { Component } from "react";
 // import SignUpForm from "../../components/SignUpForm/SignUpForm";
 import CardHeader from "../../components/Card/CardHeader";
 import CardBody from "../../components/Card/CardBody";
-// import LoginContainers from "../../containers/LoginForm/LoginContainers";
+// import LoginContainers from "../../containers/LoginContainer/LoginContainers";
 import Card from "@material-ui/core/Card";
 import GridItem from "../../components/Grid/GridItem";
 import GridContainer from "../../components/Grid/GridContainer";
@@ -14,7 +14,7 @@ import VerifyForm from "../../components/VerifyForm/VerifyForm";
 class EmailVerify extends Component {
   submit = (values) => {
     // print the form values to the console
-    // console.log(values);
+    console.log(values);
     this.props.verifyEmail(values)
   };
 
